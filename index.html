@@ -8,6 +8,27 @@
     <title>Playable Ads Portfolio</title>
   </head>
   <body>
+    <!-- Hidden Netlify Form for analytics -->
+    <form name="analytics" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="subject" />
+      <input type="text" name="visitTime" />
+      <input type="text" name="userAgent" />
+      <input type="text" name="referrer" />
+      <input type="text" name="screenResolution" />
+      <input type="text" name="language" />
+      <input type="text" name="platform" />
+      <input type="text" name="timeZone" />
+      <input type="text" name="sessionDuration" />
+      <input type="text" name="resumeDownloaded" />
+      <input type="text" name="resumeDownloadedAt" />
+      <input type="text" name="devToolsOpened" />
+      <input type="text" name="pageReloads" />
+      <input type="text" name="openedPlayables" />
+      <textarea name="playablesDetails"></textarea>
+      <input type="text" name="externalLinksClicked" />
+      <textarea name="externalLinksDetails"></textarea>
+    </form>
+    
     <script src="/ad-mock.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

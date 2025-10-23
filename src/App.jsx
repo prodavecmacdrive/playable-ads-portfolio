@@ -36,11 +36,10 @@ function App() {
 
       const analyticsData = getAnalyticsData();
       
-      // Format data for sending
+      // Format data for Netlify Forms
       const formData = new FormData();
-      formData.append('_subject', `Portfolio Visit - ${new Date().toLocaleString()}`);
-      formData.append('_captcha', 'false');
-      formData.append('_template', 'table');
+      formData.append('form-name', 'analytics');
+      formData.append('subject', `Portfolio Visit - ${new Date().toLocaleString()}`);
       formData.append('visitTime', analyticsData.visitTime);
       formData.append('userAgent', analyticsData.userAgent);
       formData.append('referrer', analyticsData.referrer);
@@ -69,11 +68,7 @@ function App() {
       formData.append('externalLinksDetails', JSON.stringify(analyticsData.externalLinksClicked, null, 2));
 
       // Use sendBeacon for reliable sending on page unload
-      const blob = new Blob([new URLSearchParams(formData).toString()], {
-        type: 'application/x-www-form-urlencoded'
-      });
-      
-      const sent = navigator.sendBeacon('https://formsubmit.co/playable.portfolio@gmail.com', blob);
+      const sent = navigator.sendBeacon('/', formData);
       if (sent) {
         markDataAsSent();
         clearSession();
