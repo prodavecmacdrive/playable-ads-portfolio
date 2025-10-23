@@ -32,11 +32,27 @@
 .modal-content.mobile {
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.modal-content.mobile .iphone-frame {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.modal-content.mobile .iphone-frame.portrait,
+.modal-content.mobile .iphone-frame.landscape {
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
 /* iPhone 17 Pro Frame */

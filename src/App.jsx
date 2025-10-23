@@ -4,7 +4,6 @@ import Header from './components/Header';
 import ProjectGrid from './components/ProjectGrid';
 import PDFSection from './components/PDFSection';
 import ProjectModal from './components/ProjectModal';
-import AnalyticsButton from './components/AnalyticsButton';
 import useAnalytics from './hooks/useAnalytics';
 import './App.css';
 
@@ -231,9 +230,6 @@ function App() {
         onReload={trackPlayableReload}
         onRotation={trackPlayableRotation}
       />
-      
-      {/* Test analytics button */}
-      <AnalyticsButton analyticsData={getAnalyticsData()} />
     </div>
   );
 }
