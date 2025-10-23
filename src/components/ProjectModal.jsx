@@ -7,7 +7,9 @@ const ProjectModal = ({ project, onClose, clickPosition, onReload, onRotation })
   const [isPortrait, setIsPortrait] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [loadIframe, setLoadIframe] = useState(false);
+  const [viewportSize, setViewportSize] = useState({ width: 0, height: 0 });
   const iframeRef = useRef(null);
+  const lastOrientationRef = useRef(null);
 
   const injectMockScript = (iframe) => {
     if (!iframe || !iframe.contentWindow || !iframe.contentWindow.document) {
@@ -77,15 +79,51 @@ const ProjectModal = ({ project, onClose, clickPosition, onReload, onRotation })
   };
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const updateViewport = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setViewportSize({ width, height });
+      const isCompact = Math.min(width, height) <= 768;
+      setIsMobile(isCompact);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    window.addEventListener('orientationchange', updateViewport);
+
+    return () => {
+      window.removeEventListener('resize', updateViewport);
+      window.removeEventListener('orientationchange', updateViewport);
+    };
   }, []);
+
+  useEffect(() => {
+    if (!project) {
+      lastOrientationRef.current = null;
+      return;
+    }
+
+    if (!isMobile) {
+      lastOrientationRef.current = null;
+      return;
+    }
+
+    const orientation = viewportSize.height >= viewportSize.width ? 'portrait' : 'landscape';
+
+    if (lastOrientationRef.current === null) {
+      lastOrientationRef.current = orientation;
+      setIsPortrait(orientation === 'portrait');
+      return;
+    }
+
+    if (lastOrientationRef.current !== orientation) {
+      lastOrientationRef.current = orientation;
+      setIsPortrait(orientation === 'portrait');
+      if (onRotation && project.name) {
+        onRotation(project.name);
+      }
+    }
+  }, [isMobile, viewportSize, project, onRotation]);
 
   // Delay iframe loading for smooth animation
   useEffect(() => {
@@ -156,6 +194,13 @@ const ProjectModal = ({ project, onClose, clickPosition, onReload, onRotation })
   const phoneWidth = isPortrait ? 393 : 852;
   const phoneHeight = isPortrait ? 852 : 393;
 
+  const frameStyle = isMobile
+    ? undefined
+    : {
+        width: `${phoneWidth}px`,
+        height: `${phoneHeight}px`,
+      };
+
   return (
     <AnimatePresence>
       {project && (
@@ -192,10 +237,7 @@ const ProjectModal = ({ project, onClose, clickPosition, onReload, onRotation })
             {/* iPhone Frame */}
             <div
               className={`iphone-frame ${isPortrait ? 'portrait' : 'landscape'}`}
-              style={{
-                width: `${phoneWidth}px`,
-                height: `${phoneHeight}px`,
-              }}
+              style={frameStyle}
             >
               {/* Status Bar */}
               <StatusBar />
