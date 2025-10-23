@@ -4,12 +4,10 @@ import './AnalyticsButton.css';
 const AnalyticsButton = ({ analyticsData, onSend }) => {
   const handleSend = async () => {
     try {
-      // Format data for sending
+      // Format data for Netlify Forms
       const formData = new FormData();
-      
-      formData.append('_subject', `Portfolio Visit - ${new Date().toLocaleString()}`);
-      formData.append('_captcha', 'false');
-      formData.append('_template', 'table');
+      formData.append('form-name', 'analytics');
+      formData.append('subject', `Portfolio Visit - ${new Date().toLocaleString()}`);
       formData.append('visitTime', analyticsData.visitTime);
       formData.append('userAgent', analyticsData.userAgent);
       formData.append('referrer', analyticsData.referrer);
@@ -37,18 +35,17 @@ const AnalyticsButton = ({ analyticsData, onSend }) => {
       formData.append('externalLinksClicked', externalLinksText);
       formData.append('externalLinksDetails', JSON.stringify(analyticsData.externalLinksClicked, null, 2));
 
-      // Send via fetch without redirect
-      const response = await fetch('https://formsubmit.co/playable.portfolio@gmail.com', {
+      // Send via fetch
+      const response = await fetch('/', {
         method: 'POST',
         body: formData,
-        mode: 'no-cors', // Disable CORS for hidden sending
       });
 
       if (onSend) onSend();
       
       alert('Analytics data sent successfully!');
     } catch (error) {
-      alert('Error sending analytics data.');
+      alert('Error sending analytics data: ' + error.message);
     }
   };
 
