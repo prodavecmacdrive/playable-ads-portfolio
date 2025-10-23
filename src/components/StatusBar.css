@@ -1,0 +1,106 @@
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 47px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start;
+  padding: 0 42px;
+  z-index: 20;
+  color: #080808;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Центрирование элементов по центральной линии Dynamic Island */
+/* Dynamic Island: top: 20px, height: 37px, центр = 38.5px */
+.status-bar-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 24.5px;
+}
+
+.status-bar-center {
+  /* Пустая центральная колонка для Dynamic Island */
+  width: 126px;
+  padding-top: 24.5px;
+}
+
+.status-bar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  height: 100%;
+  padding-top: 24.5px;
+}
+
+.status-time {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.status-icon {
+  color: #080808;
+  opacity: 1;
+}
+
+.status-icon.signal {
+  margin-right: 4px;
+}
+
+.status-icon.battery {
+  opacity: 1;
+}
+
+/* Ландшафтная ориентация */
+.iphone-frame.landscape .status-bar {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  width: 47px;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  padding: 42px 0;
+  writing-mode: horizontal-tb;
+}
+
+.iphone-frame.landscape .status-bar-left {
+  writing-mode: horizontal-tb;
+  transform: rotate(-90deg) translate(-272px, -3px);
+  transform-origin: center;
+  padding-top: 0;
+  padding-left: 24.5px;
+  height: auto;
+  width: 100%;
+}
+
+.iphone-frame.landscape .status-bar-center {
+  width: auto;
+  height: 37px;
+  padding-top: 0;
+  padding-left: 0;
+}
+
+.iphone-frame.landscape .status-bar-right {
+  writing-mode: horizontal-tb;
+  transform: rotate(-90deg) translate(150px, -1px);
+  transform-origin: center;
+  padding-top: 0;
+  padding-left: 24.5px;
+  height: auto;
+  width: 100%;
+}
+
+/* Скрытие на мобильной версии */
+.modal-content.mobile .status-bar {
+  display: none;
+}

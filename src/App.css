@@ -1,0 +1,155 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: var(--color-dark);
+}
+
+.app.modal-open {
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+.app.modal-open .main-content {
+  overflow: hidden;
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  
+  /* Психоделический градиент */
+  background: linear-gradient(
+    45deg,
+    rgba(255, 107, 53, 0.15) 0%,
+    rgba(155, 89, 182, 0.1) 25%,
+    rgba(0, 206, 209, 0.15) 50%,
+    rgba(255, 20, 147, 0.1) 75%,
+    rgba(255, 107, 53, 0.15) 100%
+  );
+  background-size: 400% 400%;
+  
+  /* Анимация */
+  animation: psychedelic-background 15s ease-in-out infinite;
+  
+  /* Эффект наложения */
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+@keyframes psychedelic-background {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+}
+
+.main-content {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-dark);
+}
+
+.main-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  background: linear-gradient(
+    45deg,
+    rgba(255, 107, 53, 0.3) 0%,
+    rgba(155, 89, 182, 0.2) 50%,
+    rgba(0, 206, 209, 0.3) 100%
+  );
+  
+  mix-blend-mode: overlay;
+  
+  animation: 
+    wave-distortion 6s ease-in-out infinite,
+    psychedelic-pulse 8s ease-in-out infinite;
+  
+  filter: saturate(1.2) contrast(1.1);
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Общие transition для всех интерактивных элементов */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Анимация загрузки */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app > * {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Улучшение производительности анимаций */
+.project-card,
+.modal-content,
+.iphone-frame {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Оптимизация для мобильных */
+@media (max-width: 768px) {
+  .app {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Accessibility: Focus states */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-primary-orange);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Уменьшение motion для пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

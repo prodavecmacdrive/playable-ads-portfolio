@@ -1,0 +1,276 @@
+.modal-backdrop {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.modal-content {
+  position: fixed;
+  z-index: 1001;
+}
+
+.modal-content.desktop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+}
+
+.modal-content.mobile {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* iPhone 17 Pro Frame */
+.iphone-frame {
+  position: relative;
+  background: #1d1d1f;
+  border-radius: 55px;
+  padding: 12px;
+  box-shadow: 
+    0 0 0 2px #3a3a3c,
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: none;
+}
+
+.iphone-frame.portrait {
+  border-radius: 55px;
+}
+
+.iphone-frame.landscape {
+  border-radius: 45px;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 37px;
+  background: #000;
+  border-radius: 19px;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.iphone-frame.landscape .dynamic-island {
+  top: 50%;
+  left: -27px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Screen */
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: #e1e1e1;
+  border-radius: 45px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 55px;
+}
+
+/* Ландшафтная ориентация экрана */
+.iphone-frame.landscape .iphone-screen {
+  padding-top: 0;
+  padding-left: 47px;
+}
+
+.playable-iframe {
+  width: 100%;
+  height: calc(100% - 55px);
+  border: none;
+  display: block;
+  background: white;
+  opacity: 0;
+  animation: fadeInIframe 0.4s ease-in-out forwards;
+  position: absolute;
+  top: 55px;
+  left: 0;
+}
+
+/* Ландшафтная ориентация iframe */
+.iphone-frame.landscape .playable-iframe {
+  width: calc(100% - 47px);
+  height: 100%;
+  top: 0;
+  left: 47px;
+}
+
+@keyframes fadeInIframe {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Control Buttons */
+.reload-button,
+.orientation-button,
+.close-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-primary-orange);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid white;
+  transition: all 0.4s ease;
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+}
+
+.reload-button:hover,
+.orientation-button:hover,
+.close-button:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: var(--color-secondary-orange);
+  box-shadow: 
+    0 6px 30px rgba(255, 107, 53, 0.6),
+    0 0 40px rgba(155, 89, 182, 0.4);
+}
+
+.reload-button:active,
+.orientation-button:active,
+.close-button:active {
+  transform: scale(0.95);
+}
+
+/* Reload Button - над рамкой */
+.reload-button {
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.reload-button:hover {
+  transform: translateX(-50%) scale(1.1) rotate(180deg);
+}
+
+/* Orientation Button - внизу слева */
+.orientation-button {
+  bottom: -70px;
+  left: 20px;
+}
+
+/* Close Button - вверху справа */
+.close-button {
+  top: -10px;
+  right: -10px;
+  background: var(--color-accent-purple);
+  border-color: var(--color-accent-purple);
+}
+
+.close-button:hover {
+  background: var(--color-accent-pink);
+  border-color: var(--color-accent-pink);
+}
+
+/* Mobile Styles */
+.modal-content.mobile .iphone-frame {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.modal-content.mobile .dynamic-island {
+  display: none;
+}
+
+.modal-content.mobile .status-bar {
+  display: none;
+}
+
+.modal-content.mobile .iphone-screen {
+  border-radius: 0;
+  padding-top: 0;
+}
+
+.modal-content.mobile .playable-iframe {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal-content.mobile .reload-button,
+.modal-content.mobile .orientation-button {
+  display: none;
+}
+
+.modal-content.mobile .close-button {
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  background: rgba(155, 89, 182, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+/* Психоделический эффект для кнопок */
+@keyframes button-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 20px rgba(255, 107, 53, 0.4),
+      0 0 30px rgba(255, 107, 53, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 4px 30px rgba(255, 107, 53, 0.6),
+      0 0 50px rgba(155, 89, 182, 0.4);
+  }
+}
+
+.reload-button,
+.orientation-button,
+.close-button {
+  animation: button-pulse 3s ease-in-out infinite;
+}
+
+/* Responsive для десктопа */
+@media (max-width: 1024px) {
+  .iphone-frame {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content.desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .modal-content.mobile {
+    display: none;
+  }
+}

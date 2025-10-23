@@ -1,0 +1,127 @@
+.header {
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  background-color: var(--color-dark);
+  padding: var(--spacing-md);
+}
+
+.header-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/pattern.png');
+  background-size: 324px;
+  background-repeat: repeat;
+  opacity: 0.8;
+  
+  /* Психоделический эффект */
+  animation: psychedelic-pulse 8s ease-in-out infinite;
+  filter: saturate(1.2) contrast(1.1);
+  
+  /* Эффект наложения цветов */
+  mix-blend-mode: screen;
+}
+
+.header-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 107, 53, 0.3) 0%,
+    rgba(155, 89, 182, 0.2) 50%,
+    rgba(0, 206, 209, 0.3) 100%
+  );
+  animation: wave-distortion 6s ease-in-out infinite;
+  mix-blend-mode: overlay;
+}
+
+.header-content {
+  position: relative;
+  z-index: 10;
+  width: auto;
+  max-width: 400px;
+  padding: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-md);
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 2px solid var(--color-primary-orange);
+  max-width: 400px;
+  animation: psychedelic-glow 3s ease-in-out infinite;
+}
+
+.contact-link {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 107, 53, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.contact-link:hover::before {
+  left: 100%;
+}
+
+.contact-link:hover {
+  color: var(--color-primary-orange);
+  transform: translateX(10px);
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-sm);
+  }
+  
+  .header-content {
+    max-width: 100%;
+  }
+  
+  .contact-info {
+    max-width: 100%;
+  }
+  
+  .contact-link {
+    font-size: 1rem;
+  }
+}
