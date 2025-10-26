@@ -1,6 +1,6 @@
 # 🎨 Playable Ads Portfolio
 
-> Минималистичное портфолио с элементами ретро-психоделии 60-х для демонстрации playable рекламных материалов.
+> A minimalist portfolio with retro psychedelic elements from the 60s for showcasing playable advertising materials.
 
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?style=flat&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat&logo=vite)
@@ -8,158 +8,149 @@
 
 ---
 
-## ✨ Особенности
-
-- 🎭 **Минималистичный дизайн** с психоделическими акцентами
-- 🍊 **Оранжевая цветовая палитра** в стиле 60-х
-- 🔤 **Fixel Font** от MacPaw для типографики
-- 🎯 **Интерактивная сетка проектов** с hover-эффектами
-- 📱 **Модальное окно с имитацией iPhone 17 Pro**
-- 📄 **Встроенное PDF портфолио** с возможностью развертывания
-- 📐 **Полностью responsive** дизайн
-- ⚡ **Плавные анимации** с Framer Motion
+## ✨ Features
 
 ---
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Установка и запуск
+### Installation and Run
 
 ```bash
-# Установка зависимостей (уже выполнена)
+# Installing dependencies (already done)
 npm install
 
-# Запуск dev сервера
+# Starting the dev server
 npm run dev
 
-# Откройте в браузере
+# Open in Browser
 http://localhost:5173/
 ```
 
-### ⚠️ Что нужно настроить
+### ⚠️ What needs to be configured
 
-1. **Контактные данные** → `src/data/projects.js`
-2. **Фото-коллаж для хедера** → `assets/bg_header.png`
+1. **Contact Information** → `src/data/projects.js`
+2. **Header Photo Collage** → `assets/bg_header.png`
 
-Подробнее в **[TODO_CLIENT.md](TODO_CLIENT.md)**
+More details in **[TODO_CLIENT.md](TODO_CLIENT.md)**
 
 ---
 
-## 📚 Документация
+## 📚 Documentation
 
-| Файл | Описание |
+| File | Description |
 |------|----------|
-| [QUICKSTART.md](QUICKSTART.md) | ⚡ Быстрый старт за 2 минуты |
-| [SETUP.md](SETUP.md) | 📖 Подробная инструкция по настройке |
-| [TODO_CLIENT.md](TODO_CLIENT.md) | ✅ Что нужно сделать клиенту |
-| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | 📁 Структура проекта |
-| [STYLE_GUIDE.js](STYLE_GUIDE.js) | 🎨 Гайд по стилям и эффектам |
-| [TESTING_CHECKLIST.md](TESTING_CHECKLIST.md) | ✔️ Чеклист тестирования |
-| [PROJECT_INFO.md](PROJECT_INFO.md) | ℹ️ Подробная информация |
+| [QUICKSTART.md](QUICKSTART.md) | ⚡ Quick start in 2 minutes |
+| [SETUP.md](SETUP.md) | 📖 Detailed setup instructions |
+| [TODO_CLIENT.md](TODO_CLIENT.md) | ✅ What the client needs to do |
+| [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | 📁 Project Structure |
+| [STYLE_GUIDE.js](STYLE_GUIDE.js) | 🎨 Style and Effect Guide |
+| [TESTING_CHECKLIST.md](TESTING_CHECKLIST.md) | ✔️ Testing Checklist |
+| [PROJECT_INFO.md](PROJECT_INFO.md) | ℹ️ Detailed Information |
 
 ---
 
-## 🛠️ Технологии
+## 🛠️ Technologies
 
 ```
 Frontend Stack:
-├── React 18.2.0          → UI фреймворк
-├── Vite 5.0.0            → Быстрая сборка и HMR
-├── Framer Motion 10.16.4 → Производительные анимации
-└── CSS3                  → Современные стили
+├── React 18.2.0 → UI framework
+├── Vite 5.0.0 → Fast build and HMR
+├── Framer Motion 10.16.4 → Performant animations
+└── CSS3 → Modern styles
 
 Design:
-├── Fixel Font (MacPaw)   → Типографика
-├── Психоделическая палитра → 60's inspired
-└── Responsive Design     → Mobile-first
+├── Fixel Font (MacPaw) → Typography
+├── Psychedelic palette → 60's inspired
+└── Responsive Design → Mobile-first
 ```
 
 ---
 
-## 🎨 Цветовая палитра
+## 🎨 Color Palette
 
 ```css
-Primary Orange:    #FF6B35  🟠
-Secondary Orange:  #FF8C42  🟠
-Accent Purple:     #9B59B6  🟣
-Accent Pink:       #FF1493  🩷
-Accent Blue:       #00CED1  🔵
+Primary Orange: #FF6B35 🟠
+Secondary Orange: #FF8C42 🟠
+Accent Purple: #9B59B6 🟣
+Accent Pink: #FF1493 🩷
+Accent Blue: #00CED1 🔵
 ```
 
 ---
 
-## 📱 Функциональность
+## 📱 Functionality
 
 ### 💻 Desktop
-✅ Модальное окно с рамкой iPhone 17 Pro  
-✅ Кнопка перезагрузки рекламы  
-✅ Кнопка смены ориентации (портрет/ландшафт)  
-✅ Психоделические hover эффекты  
-✅ Анимация открытия от позиции клика
+✅ Modal window with iPhone 17 Pro frame
+✅ Ad reload button
+✅ Orientation switch button (portrait/landscape)
+✅ Psychedelic hover effects
+✅ Opening animation based on click position
 
 ### 📱 Mobile
-✅ Полноэкранное отображение playable ads  
-✅ Автоматическое восстановление при reload  
-✅ Оптимизированные touch-анимации  
-✅ Адаптивная сетка проектов
+✅ Fullscreen display of playable ads
+✅ Automatic restoration on reload
+✅ Optimized touch animations
+✅ Responsive Project Grid
 
 ---
 
-## 🎯 Структура проекта
+## 🎯 Project Structure
 
 ```
 prtfollio/
-├── 📄 index.html                  # Главная страница
-├── 📄 package.json                # Зависимости
-├── 📄 vite.config.js              # Конфигурация Vite
+├── 📄 index.html # Home Page
+├── 📄 package.json # Dependencies
+├── 📄 vite.config.js # Vite Configuration
 │
-├── 📁 assets/                     # Публичные ресурсы
-│   ├── 🖼️ bg_header.png          # Фон хедера (для замены)
-│   ├── 📄 cv_*.pdf                # PDF портфолио
-│   └── 📁 playables/              # 13 playable ads (HTML + PNG)
+├── 📁 assets/ # Public Resources
+│ ├── 🖼️ bg_header.png # Header Background (for replacement)
+│ ├── 📄 cv_*.pdf # PDF Portfolio
+│ └── 📁 playables/ # 13 playable ads (HTML + PNG)
 │
-└── 📁 src/                        # Исходный код
-    ├── 📄 main.jsx                # Точка входа
-    ├── 📄 App.jsx                 # Главный компонент
-    ├── 📄 index.css               # Глобальные стили + Fixel Font
-    ├── 📁 components/             # React компоненты
-    │   ├── Header.jsx             # Хедер с коллажем
-    │   ├── ProjectGrid.jsx        # Сетка проектов
-    │   ├── PDFSection.jsx         # PDF секция
-    │   └── ProjectModal.jsx       # Модальное окно
-    └── 📁 data/
-        └── projects.js            # Данные (РЕДАКТИРОВАТЬ!)
+└── 📁 src/ # Source code
+├── 📄 main.jsx # Entry point
+├── 📄 App.jsx # Main component
+├── 📄 index.css # Global styles + Fixel Font
+├── 📁 components/ # React components
+│ ├── Header.jsx # Header with collage
+│ ├── ProjectGrid.jsx # Project grid
+│ ├── PDFSection.jsx # PDF section
+│ └── ProjectModal.jsx # Modal window
+└── 📁 data/
+└── projects.js # Data (EDIT!)
 ```
 
 ---
 
-## 🌟 Психоделические эффекты
+## 🌟 Psychedelic Effects
 
-- 🌈 Пульсация цветов при hover
-- ✨ Градиентное свечение
-- 〰️ Волновые искажения
-- 🎭 Цветовые оверлеи в стиле 60-х
-- 🔮 Радиальные градиенты
-- 💫 Плавные трансформации
+- 🌈 Color Pulsation on Hover
+- ✨ Gradient Glow
+- 〰️ Wave Distortions
+- 🎭 60s-Style Color Overlays
+- 🔮 Radial Gradients
+- 💫 Smooth Transforms
 
 ---
 
-## 📦 Команды
+## 📦 Commands
 
 ```bash
-npm run dev      # Разработка с HMR
-npm run build    # Сборка для продакшена
-npm run preview  # Превью продакшен версии
+npm run dev # Developing with HMR
+npm run build # Build for Production
+npm run preview # Preview the Production Version
 ```
 
 ---
 
-## 🚀 Деплой
+## 🚀 Deploy
 
-### Netlify (рекомендуется)
+### Netlify (recommended)
 ```bash
 npm run build
-# Перетащите папку dist/ на app.netlify.com/drop
+# Drag the dist/ folder to app.netlify.com/drop
 ```
 
 ### Vercel
@@ -171,56 +162,56 @@ vercel
 ### GitHub Pages
 ```bash
 npm run build
-# Загрузите dist/ в gh-pages
+# Upload dist/ to gh-pages
 ```
 
 ---
 
-## ⚡ Производительность
+## ⚡ Performance
 
 - 🎯 Lighthouse Score: >90
 - ⚡ First Paint: <1.5s
-- 📦 Оптимизированный bundle
-- 🎬 60fps анимации
+- 📦 Optimized bundle
+- 🎬 60fps animations
 - 📱 Mobile optimized
 
 ---
 
-## 🎓 Для кого
+## 🎓 Who is it for
 
-- Playable Ads разработчики
-- Креативные агентства
-- Digital маркетологи
-- UI/UX дизайнеры
+- Playable Ads developers
+- Creative agencies
+- Digital marketers
+- UI/UX designers
 
 ---
 
-## 📄 Лицензия
+## 📄 License
 
 Private Portfolio Project
 
 ---
 
-## 👨‍💻 Автор
+## 👨‍💻 Author
 
 **Oleh Vasyliev** - Playable Ads Developer
 
 ---
 
-## 🤝 Благодарности
+## 🤝 Thanks
 
-- **MacPaw** за шрифт Fixel
-- **Framer** за Motion библиотеку
-- **Vite** за быструю разработку
-- **React** за мощный UI фреймворк
+- **MacPaw** for the Fixel font
+- **Framer** for the Motion library
+- **Vite** for rapid development
+- **React** for a powerful UI framework
 
 ---
 
 <p align="center">
-  <b>Создано с ❤️ для демонстрации playable ads</b><br>
-  <sub>Минимализм + Психоделия 60-х • React • Vite • Framer Motion</sub>
+<b>Created with ❤️ to showcase playable ads</b><br>
+<sub>Minimalism + 60s Psychedelia • React • Vite • Framer Motion</sub>
 </p>
 
 ---
 
-**Версия:** 1.0.0 | **Статус:** ✅ Production Ready | **Год:** 2024
+**Version:** 1.0.0 | **Status:** ✅ Production Ready | **Year:** 2024
