@@ -47,6 +47,7 @@ More details in **[TODO_CLIENT.md](TODO_CLIENT.md)**
 | [STYLE_GUIDE.js](STYLE_GUIDE.js) | 🎨 Style and Effect Guide |
 | [TESTING_CHECKLIST.md](TESTING_CHECKLIST.md) | ✔️ Testing Checklist |
 | [PROJECT_INFO.md](PROJECT_INFO.md) | ℹ️ Detailed Information |
+| [CHEATSHEET.md](CHEATSHEET.md) | 🤝 GitHub Cheatsheet (Collaborators & Git) |
 
 ---
 
